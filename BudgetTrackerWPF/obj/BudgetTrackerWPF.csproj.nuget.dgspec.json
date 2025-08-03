@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Antipas\\Desktop\\Budget-Tracker-WPF-App\\BudgetTrackerWPF\\BudgetTrackerWPF.csproj": {}
+    "C:\\Users\\Antipas\\Desktop\\Budget-Tracker-WPF-App\\BudgetTrackerWPF\\BudgetTrackerWPF\\BudgetTrackerWPF.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Antipas\\Desktop\\Budget-Tracker-WPF-App\\BudgetTrackerWPF\\BudgetTrackerWPF.csproj": {
+    "C:\\Users\\Antipas\\Desktop\\Budget-Tracker-WPF-App\\BudgetTrackerWPF\\BudgetTrackerWPF\\BudgetTrackerWPF.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Antipas\\Desktop\\Budget-Tracker-WPF-App\\BudgetTrackerWPF\\BudgetTrackerWPF.csproj",
+        "projectUniqueName": "C:\\Users\\Antipas\\Desktop\\Budget-Tracker-WPF-App\\BudgetTrackerWPF\\BudgetTrackerWPF\\BudgetTrackerWPF.csproj",
         "projectName": "BudgetTrackerWPF",
-        "projectPath": "C:\\Users\\Antipas\\Desktop\\Budget-Tracker-WPF-App\\BudgetTrackerWPF\\BudgetTrackerWPF.csproj",
+        "projectPath": "C:\\Users\\Antipas\\Desktop\\Budget-Tracker-WPF-App\\BudgetTrackerWPF\\BudgetTrackerWPF\\BudgetTrackerWPF.csproj",
         "packagesPath": "C:\\Users\\Antipas\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Antipas\\Desktop\\Budget-Tracker-WPF-App\\BudgetTrackerWPF\\obj\\",
+        "outputPath": "C:\\Users\\Antipas\\Desktop\\Budget-Tracker-WPF-App\\BudgetTrackerWPF\\BudgetTrackerWPF\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

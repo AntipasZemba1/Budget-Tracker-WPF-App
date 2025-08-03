@@ -10,9 +10,9 @@
         </Grid.RowDefinitions>
 
         <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-            <TextBox x:Name="DescriptionBox" Width="100" Margin="5" PlaceholderText="Description"/>
-            <TextBox x:Name="CategoryBox" Width="100" Margin="5" PlaceholderText="Category"/>
-            <TextBox x:Name="AmountBox" Width="100" Margin="5" PlaceholderText="Amount"/>
+            <TextBox x:Name="DescriptionBox" Width="150" Margin="5" Text="Description"/>
+            <TextBox x:Name="CategoryBox" Width="150" Margin="5" Text="Category"/>
+            <TextBox x:Name="AmountBox" Width="100" Margin="5" Text="Amount"/>
             <Button Content="Add" Click="Add_Click" Margin="5"/>
         </StackPanel>
 
