@@ -2,22 +2,34 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:vm="clr-namespace:BudgetTracker.ViewModels"
-             Height="300" Width="400">
-    <Grid Margin="10">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
+             Height="250" Width="400">
 
-        <TextBox x:Name="DescriptionTextBox" Margin="5" PlaceholderText="Description"/>
-        <TextBox x:Name="AmountTextBox" Grid.Row="1" Margin="5" PlaceholderText="Amount"/>
-        <ComboBox x:Name="TypeComboBox" Grid.Row="2" Margin="5" >
-            <ComboBoxItem Content="Income" />
-            <ComboBoxItem Content="Expense" />
-        </ComboBox>
-        <Button Content="Save" Grid.Row="3" Margin="5" Width="100" HorizontalAlignment="Left"/>
-    </Grid>
+    <UserControl.DataContext>
+        <vm:TransactionFormViewModel/>
+    </UserControl.DataContext>
+
+    <StackPanel Margin="10" Orientation="Vertical" VerticalAlignment="Top">
+
+        <TextBox Margin="0,5" 
+                 Text="{Binding Description, UpdateSourceTrigger=PropertyChanged}" 
+                 PlaceholderText="Description"/>
+
+        <TextBox Margin="0,5" 
+                 Text="{Binding Amount, UpdateSourceTrigger=PropertyChanged}" 
+                 PlaceholderText="Amount"/>
+
+        <ComboBox Margin="0,5"
+                  SelectedItem="{Binding SelectedType, Mode=TwoWay}"
+                  ItemsSource="{x:Static vm:TransactionType.GetValues}" />
+
+        <ComboBox Margin="0,5"
+                  SelectedItem="{Binding SelectedCategory, Mode=TwoWay}"
+                  DisplayMemberPath="Name"
+                  ItemsSource="{Binding Categories}" />
+
+        <Button Content="Save Transaction" 
+                Command="{Binding SaveCommand}" 
+                Margin="0,10,0,0" Width="150"/>
+
+    </StackPanel>
 </UserControl>
