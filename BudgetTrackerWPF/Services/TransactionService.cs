@@ -20,6 +20,12 @@ namespace BudgetTrackerWPF.Services
             DataStorage.Save(_transactions);
         }
 
+        public void DeleteTransaction(Transaction transaction)
+        {
+            _transactions.Remove(transaction);
+            DataStorage.Save(_transactions);
+        }
+
         public List<Transaction> GetAllTransactions() => _transactions;
 
         public decimal GetBalance()

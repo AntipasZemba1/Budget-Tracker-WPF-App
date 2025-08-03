@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using BudgetTrackerWPF.Services;
+using BudgetTrackerWPF.Models;
 
 namespace BudgetTrackerWPF
 {
@@ -27,7 +28,7 @@ namespace BudgetTrackerWPF
 
             if (string.IsNullOrWhiteSpace(desc) || string.IsNullOrWhiteSpace(cat))
             {
-                MessageBox.Show("Description and Category are required.");
+                MessageBox.Show("All fields are required.");
                 return;
             }
 
@@ -36,11 +37,24 @@ namespace BudgetTrackerWPF
             RefreshUI();
         }
 
+        private void TransactionList_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            if (TransactionList.SelectedItem is Transaction selected)
+            {
+                var result = MessageBox.Show($"Delete this transaction?\n\n{selected}", "Confirm Delete", MessageBoxButton.YesNo);
+                if (result == MessageBoxResult.Yes)
+                {
+                    _service.DeleteTransaction(selected);
+                    RefreshUI();
+                }
+            }
+        }
+
         private void RefreshUI()
         {
             TransactionList.ItemsSource = null;
             TransactionList.ItemsSource = _service.GetAllTransactions();
-            BalanceText.Text = $"Balance: {_service.GetBalance():C}";
+            BalanceText.Text = $"Current Balance: {_service.GetBalance():C}";
         }
 
         private void ClearInputs()
