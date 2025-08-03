@@ -1,10 +1,9 @@
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
-using BudgetTrackerApp.Models;
+using BudgetTrackerWPF.Models;
 
-namespace BudgetTrackerApp.Data
+namespace BudgetTrackerWPF.Data
 {
     public static class DataStorage
     {

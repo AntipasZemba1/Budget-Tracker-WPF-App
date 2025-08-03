@@ -1,0 +1,4 @@
+C:\Users\Antipas\Desktop\Budget-Tracker-WPF-App\BudgetTrackerWPF\obj\Debug\net9.0-windows\MainWindow.g.cs
+C:\Users\Antipas\Desktop\Budget-Tracker-WPF-App\BudgetTrackerWPF\obj\Debug\net9.0-windows\App.g.cs
+C:\Users\Antipas\Desktop\Budget-Tracker-WPF-App\BudgetTrackerWPF\obj\Debug\net9.0-windows\BudgetTrackerWPF_MarkupCompile.cache
+C:\Users\Antipas\Desktop\Budget-Tracker-WPF-App\BudgetTrackerWPF\obj\Debug\net9.0-windows\BudgetTrackerWPF_MarkupCompile.lref

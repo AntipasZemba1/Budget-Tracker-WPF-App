@@ -1,23 +1,53 @@
-﻿using System.Text;
+﻿using System;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using BudgetTrackerWPF.Services;
 
-namespace BudgetTrackerWPF;
-
-/// <summary>
-/// Interaction logic for MainWindow.xaml
-/// </summary>
-public partial class MainWindow : Window
+namespace BudgetTrackerWPF
 {
-    public MainWindow()
+    public partial class MainWindow : Window
     {
-        InitializeComponent();
+        private TransactionService _service;
+
+        public MainWindow()
+        {
+            InitializeComponent();
+            _service = new TransactionService();
+            RefreshUI();
+        }
+
+        private void Add_Click(object sender, RoutedEventArgs e)
+        {
+            string desc = DescriptionBox.Text.Trim();
+            string cat = CategoryBox.Text.Trim();
+            if (!decimal.TryParse(AmountBox.Text.Trim(), out decimal amt))
+            {
+                MessageBox.Show("Please enter a valid amount.");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(desc) || string.IsNullOrWhiteSpace(cat))
+            {
+                MessageBox.Show("Description and Category are required.");
+                return;
+            }
+
+            _service.AddTransaction(desc, cat, amt);
+            ClearInputs();
+            RefreshUI();
+        }
+
+        private void RefreshUI()
+        {
+            TransactionList.ItemsSource = null;
+            TransactionList.ItemsSource = _service.GetAllTransactions();
+            BalanceText.Text = $"Balance: {_service.GetBalance():C}";
+        }
+
+        private void ClearInputs()
+        {
+            DescriptionBox.Text = "";
+            CategoryBox.Text = "";
+            AmountBox.Text = "";
+        }
     }
 }

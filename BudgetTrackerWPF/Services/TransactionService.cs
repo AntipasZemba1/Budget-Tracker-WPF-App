@@ -1,8 +1,8 @@
 using System.Collections.Generic;
-using BudgetTrackerApp.Models;
-using BudgetTrackerApp.Data;
+using BudgetTrackerWPF.Models;
+using BudgetTrackerWPF.Data;
 
-namespace BudgetTrackerApp.Services
+namespace BudgetTrackerWPF.Services
 {
     public class TransactionService
     {
@@ -20,10 +20,7 @@ namespace BudgetTrackerApp.Services
             DataStorage.Save(_transactions);
         }
 
-        public List<Transaction> GetAllTransactions()
-        {
-            return _transactions;
-        }
+        public List<Transaction> GetAllTransactions() => _transactions;
 
         public decimal GetBalance()
         {
@@ -33,20 +30,6 @@ namespace BudgetTrackerApp.Services
                 balance += t.Amount;
             }
             return balance;
-        }
-
-        public void PrintTransactions()
-        {
-            if (_transactions.Count == 0)
-            {
-                Console.WriteLine("No transactions yet.");
-                return;
-            }
-
-            foreach (var t in _transactions)
-            {
-                Console.WriteLine(t);
-            }
         }
     }
 }
