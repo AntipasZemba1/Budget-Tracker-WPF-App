@@ -1,0 +1,29 @@
+<Window x:Class="BudgetTracker.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:views="clr-namespace:BudgetTracker.Views"
+        xmlns:vm="clr-namespace:BudgetTracker.ViewModels"
+        Title="Budget Tracker" Height="500" Width="800">
+    <Window.DataContext>
+        <vm:MainViewModel/>
+    </Window.DataContext>
+
+    <DockPanel Margin="10">
+        <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" Margin="0,0,0,10">
+            <TextBlock Text="Income: " FontWeight="Bold" Margin="0,0,5,0"/>
+            <TextBlock Text="{Binding TotalIncome}" Margin="0,0,20,0"/>
+            <TextBlock Text="Expense: " FontWeight="Bold" Margin="0,0,5,0"/>
+            <TextBlock Text="{Binding TotalExpense}" />
+        </StackPanel>
+
+        <DataGrid ItemsSource="{Binding Transactions}" AutoGenerateColumns="False" DockPanel.Dock="Top">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Description" Binding="{Binding Description}"/>
+                <DataGridTextColumn Header="Amount" Binding="{Binding Amount}"/>
+                <DataGridTextColumn Header="Type" Binding="{Binding Type}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <views:TransactionForm DockPanel.Dock="Bottom"/>
+    </DockPanel>
+</Window>
