@@ -1,0 +1,15 @@
+C:\Users\Antipas\Desktop\Budget-Tracker-WPF-App\BudgetTrackerApp\bin\Debug\net9.0\BudgetTrackerApp.exe
+C:\Users\Antipas\Desktop\Budget-Tracker-WPF-App\BudgetTrackerApp\bin\Debug\net9.0\BudgetTrackerApp.deps.json
+C:\Users\Antipas\Desktop\Budget-Tracker-WPF-App\BudgetTrackerApp\bin\Debug\net9.0\BudgetTrackerApp.runtimeconfig.json
+C:\Users\Antipas\Desktop\Budget-Tracker-WPF-App\BudgetTrackerApp\bin\Debug\net9.0\BudgetTrackerApp.dll
+C:\Users\Antipas\Desktop\Budget-Tracker-WPF-App\BudgetTrackerApp\bin\Debug\net9.0\BudgetTrackerApp.pdb
+C:\Users\Antipas\Desktop\Budget-Tracker-WPF-App\BudgetTrackerApp\obj\Debug\net9.0\BudgetTrackerApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Antipas\Desktop\Budget-Tracker-WPF-App\BudgetTrackerApp\obj\Debug\net9.0\BudgetTrackerApp.AssemblyInfoInputs.cache
+C:\Users\Antipas\Desktop\Budget-Tracker-WPF-App\BudgetTrackerApp\obj\Debug\net9.0\BudgetTrackerApp.AssemblyInfo.cs
+C:\Users\Antipas\Desktop\Budget-Tracker-WPF-App\BudgetTrackerApp\obj\Debug\net9.0\BudgetTrackerApp.csproj.CoreCompileInputs.cache
+C:\Users\Antipas\Desktop\Budget-Tracker-WPF-App\BudgetTrackerApp\obj\Debug\net9.0\BudgetTrackerApp.sourcelink.json
+C:\Users\Antipas\Desktop\Budget-Tracker-WPF-App\BudgetTrackerApp\obj\Debug\net9.0\BudgetTrackerApp.dll
+C:\Users\Antipas\Desktop\Budget-Tracker-WPF-App\BudgetTrackerApp\obj\Debug\net9.0\refint\BudgetTrackerApp.dll
+C:\Users\Antipas\Desktop\Budget-Tracker-WPF-App\BudgetTrackerApp\obj\Debug\net9.0\BudgetTrackerApp.pdb
+C:\Users\Antipas\Desktop\Budget-Tracker-WPF-App\BudgetTrackerApp\obj\Debug\net9.0\BudgetTrackerApp.genruntimeconfig.cache
+C:\Users\Antipas\Desktop\Budget-Tracker-WPF-App\BudgetTrackerApp\obj\Debug\net9.0\ref\BudgetTrackerApp.dll
