@@ -1,17 +1,23 @@
-using System;
 using System.Collections.Generic;
 using BudgetTrackerApp.Models;
+using BudgetTrackerApp.Data;
 
 namespace BudgetTrackerApp.Services
 {
     public class TransactionService
     {
-        private List<Transaction> _transactions = new();
+        private List<Transaction> _transactions;
+
+        public TransactionService()
+        {
+            _transactions = DataStorage.Load();
+        }
 
         public void AddTransaction(string description, string category, decimal amount)
         {
             var transaction = new Transaction(description, category, amount);
             _transactions.Add(transaction);
+            DataStorage.Save(_transactions);
         }
 
         public List<Transaction> GetAllTransactions()
