@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BudgetTrackerWPF")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b0954fa5e258b3481c636de1e94e2dcf5f1f6546")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e7418ff02052f58a0908ede662ae0a9e1a930c58")]
 [assembly: System.Reflection.AssemblyProductAttribute("BudgetTrackerWPF")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BudgetTrackerWPF")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

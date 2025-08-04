@@ -1,6 +1,9 @@
 using System.Collections.Generic;
 using BudgetTrackerWPF.Models;
 using BudgetTrackerWPF.Data;
+using System.Globalization;
+using System.Linq;
+using BudgetTrackerWPF.Models;
 
 namespace BudgetTrackerWPF.Services
 {
@@ -37,5 +40,26 @@ namespace BudgetTrackerWPF.Services
             }
             return balance;
         }
+
+        public List<MonthlySummary> GetMonthlySummaries()
+        {
+            return _transactions
+                .GroupBy(t => t.Date.ToString("yyyy MMM"))
+                .OrderByDescending(g => g.Key)
+                .Select(g =>
+                {
+                    var income = g.Where(t => t.Amount > 0).Sum(t => t.Amount);
+                    var expenses = g.Where(t => t.Amount < 0).Sum(t => t.Amount);
+                    return new MonthlySummary
+                    {
+                        Month = g.Key,
+                        Income = income,
+                        Expenses = expenses
+                    };
+                })
+                .ToList();
+        }
+
     }
+
 }

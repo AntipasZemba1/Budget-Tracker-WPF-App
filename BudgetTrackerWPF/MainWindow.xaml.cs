@@ -1,67 +1,68 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Windows;
-using BudgetTrackerWPF.Services;
-using BudgetTrackerWPF.Models;
+using LiveChartsCore;
+using LiveChartsCore.SkiaSharpView;
 
 namespace BudgetTrackerWPF
 {
     public partial class MainWindow : Window
     {
-        private TransactionService _service;
+        private List<Transaction> transactions = new List<Transaction>();
 
         public MainWindow()
         {
             InitializeComponent();
-            _service = new TransactionService();
             RefreshUI();
         }
 
         private void Add_Click(object sender, RoutedEventArgs e)
         {
-            string desc = DescriptionBox.Text.Trim();
-            string cat = CategoryBox.Text.Trim();
-            if (!decimal.TryParse(AmountBox.Text.Trim(), out decimal amt))
+            if (decimal.TryParse(AmountBox.Text, out decimal amount))
             {
-                MessageBox.Show("Please enter a valid amount.");
-                return;
-            }
-
-            if (string.IsNullOrWhiteSpace(desc) || string.IsNullOrWhiteSpace(cat))
-            {
-                MessageBox.Show("All fields are required.");
-                return;
-            }
-
-            _service.AddTransaction(desc, cat, amt);
-            ClearInputs();
-            RefreshUI();
-        }
-
-        private void TransactionList_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            if (TransactionList.SelectedItem is Transaction selected)
-            {
-                var result = MessageBox.Show($"Delete this transaction?\n\n{selected}", "Confirm Delete", MessageBoxButton.YesNo);
-                if (result == MessageBoxResult.Yes)
+                var transaction = new Transaction
                 {
-                    _service.DeleteTransaction(selected);
-                    RefreshUI();
-                }
+                    Description = DescriptionBox.Text,
+                    Category = CategoryBox.Text,
+                    Amount = amount,
+                    Date = DateTime.Now
+                };
+                transactions.Add(transaction);
+                RefreshUI();
+            }
+            else
+            {
+                MessageBox.Show("Invalid amount");
             }
         }
 
         private void RefreshUI()
         {
             TransactionList.ItemsSource = null;
-            TransactionList.ItemsSource = _service.GetAllTransactions();
-            BalanceText.Text = $"Current Balance: {_service.GetBalance():C}";
-        }
+            TransactionList.ItemsSource = transactions.Select(t => $"{t.Date.ToShortDateString()} - {t.Description} ({t.Category}): {t.Amount:C}");
 
-        private void ClearInputs()
-        {
-            DescriptionBox.Text = "";
-            CategoryBox.Text = "";
-            AmountBox.Text = "";
+            decimal balance = transactions.Sum(t => t.Amount);
+            BalanceText.Text = $"Balance: {balance:C}";
+
+            var grouped = transactions
+                .GroupBy(t => t.Category)
+                .Select(g => new PieSeries<decimal>
+                {
+                    Name = g.Key,
+                    Values = new decimal[] { g.Sum(t => t.Amount) }
+                })
+                .ToArray();
+
+            CategoryPieChart.Series = grouped;
         }
+    }
+
+    public class Transaction
+    {
+        public string Description { get; set; }
+        public string Category { get; set; }
+        public decimal Amount { get; set; }
+        public DateTime Date { get; set; }
     }
 }
